@@ -8,9 +8,11 @@ namespace CSharpHomework11
 {
     public class DatabaseHelper
     {
-        // Connection string
-        private static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=EmployeeTimeTracker;Integrated Security=True";
-
+        // Updated connection string for LocalDB
+        private static string connectionString = @"Data Source=127.0.0.1,1666\IDENTITYACCESS;
+Initial Catalog=EmployeeTimeTracker;
+User ID=root;
+Password=SQL.rcr2009";
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);

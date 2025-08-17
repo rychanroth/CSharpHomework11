@@ -64,6 +64,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -198,6 +199,7 @@
             this.btnChoosePhoto.TabIndex = 16;
             this.btnChoosePhoto.Text = "Load Photo";
             this.btnChoosePhoto.UseVisualStyleBackColor = true;
+            this.btnChoosePhoto.Click += new System.EventHandler(this.btnChoosePhoto_Click);
             // 
             // label8
             // 
@@ -255,6 +257,7 @@
             this.txtTimeIn.Name = "txtTimeIn";
             this.txtTimeIn.Size = new System.Drawing.Size(100, 22);
             this.txtTimeIn.TabIndex = 22;
+            this.txtTimeIn.TextChanged += new System.EventHandler(this.txtTimeIn_TextChanged);
             // 
             // txtTimeOut
             // 
@@ -262,6 +265,7 @@
             this.txtTimeOut.Name = "txtTimeOut";
             this.txtTimeOut.Size = new System.Drawing.Size(99, 22);
             this.txtTimeOut.TabIndex = 23;
+            this.txtTimeOut.TextChanged += new System.EventHandler(this.txtTimeOut_TextChanged);
             // 
             // txtDuration
             // 
@@ -277,6 +281,7 @@
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(99, 22);
             this.txtRate.TabIndex = 25;
+            this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
             // 
             // txtAmount
             // 
@@ -299,6 +304,7 @@
             this.btnModify.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnModify.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnRemove
             // 
@@ -313,6 +319,7 @@
             this.btnRemove.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnSearch
             // 
@@ -327,6 +334,7 @@
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnReceipt
             // 
@@ -341,6 +349,7 @@
             this.btnReceipt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReceipt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnReceipt.UseVisualStyleBackColor = true;
+            this.btnReceipt.Click += new System.EventHandler(this.btnReceipt_Click);
             // 
             // btnSave
             // 
@@ -355,16 +364,22 @@
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 527);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(564, 69);
             this.dataGridView1.TabIndex = 33;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // label13
             // 
@@ -387,6 +402,7 @@
             // 
             // dtpDOB
             // 
+            this.dtpDOB.Enabled = false;
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDOB.Location = new System.Drawing.Point(132, 266);
             this.dtpDOB.Name = "dtpDOB";
@@ -406,12 +422,14 @@
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(399, 200);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(178, 138);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -424,6 +442,10 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -466,8 +488,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
             this.Text = "Employee Work - FinTech";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -514,6 +538,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtTotalSalary;
         private System.Windows.Forms.DateTimePicker dtpDOB;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
